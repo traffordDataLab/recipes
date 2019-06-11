@@ -1,4 +1,4 @@
-<img align="left" width="70" src="https://cran.r-project.org/Rlogo.svg" alt="R"/><h2>ecipes for local government</h2>
+<h1> <img src="https://cran.r-project.org/Rlogo.svg" alt="R" width="80" style="float:left;">ecipes for local government
 
 A cookbook of recipes for common analytical tasks in local government.
 
