@@ -1,0 +1,113 @@
+---
+output:
+  html_document:
+    highlight: textmate
+    css: ../styles.css
+    code_folding: hide
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<a href="https://github.com/trafforddatalab/recipes/edit/master/gis/download_local_authority_boundaries.Rmd" class="btn btn-default"><i class="fa fa-edit"></i> Edit this page</a>
+
+<h1>Download local authority boundaries</h1>
+
+The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/" target="_blank">Open Geography Portal</a> provide a range of geospatial datasets under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3" target="_blank">Open Government Licence 3.0</a>. Digital vector boundaries for different administrative and statistical geographies are  available to freely download. Here we'll download a single local authority boundary file.
+
+<h3>Ingredients</h3>  
+<div class = "row">
+<div class = "col-md-4">
+<strong>Data sources</strong>
+<p><a href="https://geoportal.statistics.gov.uk/" target="_blank">ONS Open Geography Portal</a></p>
+<br />
+</div>
+
+<div class = "col-md-4">
+<strong>R packages</strong>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
+<li><a href="https://cran.r-project.org/web/packages/sf/index.html" target="_blank">sf</a></li>
+</ul>
+<br />
+</div>
+  
+<div class = "col-md-4">
+<img src="img/download_local_authority_boundaries.png" alt="Population pyramid">
+</div>
+</div>
+
+### Instructions
+
+<div class = "titlebar">
+<b>Method 1: download all boundaries and filter in R</b>
+</div>
+<br />
+
+1. Load the necessary R packages.
+```{r, eval=FALSE}
+library(tidyverse) ; library(sf)
+```
+
+2. Visit the <a href="https://geoportal.statistics.gov.uk/" target="_blank">ONS Open Geography Portal</a> and select your local authority boundary: Boundaries > Administrative Boundaries > Local Authority Districts. For example, choose <a href="https://geoportal.statistics.gov.uk/datasets/local-authority-districts-december-2018-boundaries-uk-bgc" target="_blank">Local Authority Districts (December 2018) Boundaries UK BGC</a> from the list.
+
+3. Select the 'APIs' button on the right hand side and copy the URL path under GeoJSON.
+
+4. Paste the URL into the dsn argument of `st_read()`.
+
+```{r, eval=FALSE}
+sf <- st_read("https://opendata.arcgis.com/datasets/2c5b8eb836c7475ba3b305106ac9dfc3_0.geojson")
+```
+
+5. Filter by your chosen local authority
+```{r, eval=FALSE}
+sf <- filter(sf, lad18nm == "Trafford")
+```
+
+6. Check the coordinate reference system
+```{r, eval=FALSE}
+st_crs(bdy)
+```
+
+7. Plot the results
+```{r, eval=FALSE}
+plot(st_geometry(sf))
+```
+
+8. Save the boundary as a GeoJSON
+```{r, eval=FALSE}
+st_write(sf, "local_authority_boundary.geojson")
+```
+
+<br />
+
+<div class = "titlebar">
+<b>Method 2: filter using the API</b>
+</div>
+<br />
+
+1. Load the necessary R packages.
+```{r, eval=FALSE}
+library(tidyverse) ; library(sf)
+```
+
+2. Visit the <a href="https://geoportal.statistics.gov.uk/" target="_blank">ONS Open Geography Portal</a> and select your local authority boundary: Boundaries > Administrative Boundaries > Local Authority Districts. For example, choose <a href="https://geoportal.statistics.gov.uk/datasets/local-authority-districts-december-2018-boundaries-uk-bgc" target="_blank">Local Authority Districts (December 2018) Boundaries UK BGC</a> from the list.
+
+3. Select the 'API Explorer' button at the top of the page.
+
+4. Navigate to the 'Query' box and click the **+** next to the 'Where' parameter. Select 'lad18nm | Text' from the 'Attributes' pick list and enter your local authority name in the box. Press Enter on your keyboard.
+
+5. Highlight and copy the URL that appears in the 'Query URL' box.
+
+6. Use the URL in the dsn argument of `st_read()` and retrieve the data.
+
+```{r, eval=FALSE}
+sf <- st_read("https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_GB_BGC/MapServer/0/query?where=UPPER(lad18nm)%20like%20'%25TRAFFORD%25'&outFields=lad18nm,long,lat,lad18cd&outSR=4326&f=json")
+```
+
+### Notes
+Further information about using the Open Geography Portal API can be found <a href="https://medium.com/@traffordDataLab/pushing-the-boundaries-with-the-open-geography-portal-api-4d70637bddc3" target="_blank">here</a>.
+<br />

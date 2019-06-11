@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@font-face 
+{
+  font-family: 'Open Sans', sans-serif;
+}
+
+div 
+{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .header
+{
+  font-family: 'Open Sans', sans-serif;
+}
+
+a 
+{
+  color: #fc6721;
+    text-decoration: none;
+}
+
+a:hover
+{
+  color: #fc6721;
+    text-decoration: underline;
+}
+
+a:focus {
+  color: #fc6721;
+  text-decoration: none;
+  outline: none;
+  outline-offset: 0;
+}
+
+/* Remove list bullets */
+ul 
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Left align ordered list */
+ol 
+{
+  padding: 0;   
+  margin: 0;
+  margin-left: 1em;
+}
+
+div.titlebar
+{ 
+  background-color: #F5F5F5; 
+  border-radius: 5px; 
+  padding: 8px 0 1px 5px;
+}
+  
+p.caption 
+{
+  font-size: 0.9em;
+  font-style: italic;
+  color: grey;
+  margin-right: 10%;
+  margin-left: 10%;  
+  text-align: justify;
+}

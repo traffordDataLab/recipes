@@ -1,0 +1,56 @@
+---
+output:
+  html_document:
+    css: styles.css
+---
+
+<style>
+
+h1 {
+  text-size: 3em;
+}
+
+h1 img {
+  width: 3em;
+}
+
+ul {
+  list-style: disc;
+  padding: 0;
+  margin-left: 1em;
+}
+
+</style>
+
+<br />
+
+<h1><img src="https://cran.r-project.org/Rlogo.svg" alt="R"/>ecipes for local government</h1>
+
+<p><br />
+These are recipes to common tasks like retrieving data from <a href="https://www.nomisweb.co.uk/" target="_blank">Nomis</a>, geocoding addresses, and creating data visualisations like population pyramids. All the <a href="https://cran.r-project.org/" target="_blank">R</a> code is provided along with step by step instructions. For those wanting an introductory guide to R check out <a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science</a>.
+</p>
+
+<h4>Want to contribute?</h4>
+These recipes have been created using the <a href="https://rmarkdown.rstudio.com/" target="_blank">rmarkdown</a> R package which makes editing easy. Any GitHub user (<a href="https://github.com/" target="_blank">sign-up at github.com</a>) can make changes to a recipe by clicking <img src="edit_button.png" alt="Edit button" style="width:6em;">. Once you've made your edits you can submit your changes for approval. If you'd rather just make a comment you can post an <a href="https://github.com/trafforddatalab/recipes/issues" target="_blank">issue</a> on GitHub. 
+
+New recipes are also very welcome. A recipe template is available to download from <a href="https://github.com/trafforddatalab/recipes/template" target="_blank">here</a>. When you've completed your recipe send us a <a href="https://help.github.com/en/articles/about-pull-requests" target="_blank">pull request</a>.
+<br /><br />
+
+<div class = "titlebar">
+<b>Data visualisation</b>
+</div>
+<ul>
+    <li><a href="data_visualisation/population_pyramids.html">Population pyramids</a></li>
+</ul>
+<br />
+
+<div class = "titlebar">
+<b>GIS</b>
+</div>
+<ul>
+    <li><a href="gis/download_local_authority_boundaries.html">Download local authority boundaries</a></li>
+</ul>
+
+<br /><br /><br />
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">These recipes</span> </a> are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.

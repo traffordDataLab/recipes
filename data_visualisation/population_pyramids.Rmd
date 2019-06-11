@@ -1,0 +1,99 @@
+---
+output:
+  html_document:
+    highlight: textmate
+    css: ../styles.css
+    code_folding: hide
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<a href="https://github.com/trafforddatalab/recipes/edit/master/data_visualisation/population_pyramids.Rmd" class="btn btn-default"><i class="fa fa-edit"></i> Edit this page</a>
+
+<h1>Population pyramids</h1>
+
+A population pyramid visualises the age-gender distribution. This recipe uses the latest <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland" target="_blank">mid-year population estimates</a> for a local authority and visualises them by gender and 5-year age bands.
+
+<h3>Ingredients</h3>  
+<div class = "row">
+<div class = "col-md-4">
+<strong>Data sources</strong>
+<p><a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis, ONS</a></p>
+<br />
+</div>
+
+<div class = "col-md-4">
+<strong>R packages</strong>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
+<li><a href="https://cran.r-project.org/web/packages/ggpol/index.html" target="_blank">ggpol</a></li>
+</ul>
+<br />
+</div>
+  
+<div class = "col-md-4">
+<img src="img/population_pyramid.png" alt="Population pyramid">
+</div>
+</div>
+
+### Instructions
+
+1. Load the necessary R packages.
+```{r, eval=FALSE}
+library(tidyverse) ; library(ggpol)
+```
+
+2. Visit <a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis</a> and select your chosen Geography, Date, Age and Sex. Here we've chosen every single year of age (Age) and Male and Female (Sex).
+
+3. Navigate to 'Format / Layout' and choose 'Nomis API' as your format. Hit the 'Download Data' button. Select the 'Tabulation links' tab and right-click the 'Comma Separated Values (csv)' file to obtain the URL path. 
+
+4. Paste the URL in the path argument of `read_csv`.
+```{r, eval=FALSE}
+df <- read_csv("http://www.nomisweb.co.uk/api/v01/dataset/NM_2002_1.data.csv?geography=E08000009&date=latest&gender=1,2&c_age=101...191&measures=20100&select=date_name,geography_name,geography_code,gender_name,c_age_name,measures_name,obs_value,obs_status_name")
+```
+
+5. Prepare the data for visualisation. Here we group the individual years into age bands and calculate the corresponding population by gender.
+```{r, eval=FALSE}
+population <- df %>% 
+  select(gender = GENDER_NAME, age = C_AGE_NAME, n = OBS_VALUE) %>% 
+  mutate(gender = factor(gender, levels = c("Male", "Female")),
+         age = parse_number(age),
+         ageband = cut(age,
+                       breaks = c(0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,120),
+                       labels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34","35-39",
+                                  "40-44","45-49","50-54","55-59","60-64","65-69","70-74",
+                                  "75-79","80-84","85-89","90+"),
+                       right = FALSE)) %>% 
+  group_by(gender, ageband) %>% 
+  summarise(n = sum(n)) %>% 
+  mutate(n = case_when(gender == "Male" ~ n * -1, TRUE ~ n))
+```
+
+6. Plot.
+```{r, eval=FALSE}
+ggplot(population, aes(x = ageband, y = n, fill = gender)) +
+  geom_col() + 
+  scale_fill_manual(values = c("#7FC5DC", "#7FDCC5"), labels = c("Female", "Male")) +
+  facet_share(~gender, dir = "h", scales = "free", reverse_num = TRUE) +
+  coord_flip() +
+  labs(x = NULL, y = NULL, 
+       title = "Age composition of Trafford in mid-2017",
+       caption = "Source: Office for National Statistics", 
+       fill = NULL) +
+  theme_minimal() +
+  theme(plot.margin = unit(c(1,1,1,1), "cm"),
+        panel.spacing = unit(0.05, "lines"),
+        panel.grid.major.y = element_blank(),
+        plot.title = element_text(size = 13, face = "bold", hjust = 0.5, vjust = 4),
+        strip.text = element_text(size = 11, vjust = 1),
+        axis.text.x = element_text(size = 9),
+        axis.text.y = element_text(size = 9),
+        plot.caption = element_text(size = 9, color = "grey50", hjust = 1, margin = margin(t = 15)),
+        legend.position = "none")
+```
+
+<br /><br />
