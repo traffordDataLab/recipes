@@ -1,6 +1,6 @@
-<h2><img src="https://cran.r-project.org/Rlogo.svg" style= "width: 3em;" alt="R"/>ecipes for local government</h2>
+<img align="left" width="80" src="https://cran.r-project.org/Rlogo.svg" alt="R"/><h2>ecipes for local government</h2>
 
- A cookbook of recipes for common analytical tasks in local government.
+A cookbook of recipes for common analytical tasks in local government.
 
 #### Aim
 To embed an analytical workflow across UK local government that encourages openness, reproducibility and collaboration.
