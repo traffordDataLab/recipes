@@ -20,7 +20,6 @@ The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://geoportal.statistics.gov.uk/" target="_blank">ONS Open Geography Portal</a></p>
-<br />
 </div>
 
 <div class = "col-md-4">
@@ -29,7 +28,6 @@ The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/
 <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
 <li><a href="https://cran.r-project.org/web/packages/sf/index.html" target="_blank">sf</a></li>
 </ul>
-<br />
 </div>
   
 <div class = "col-md-4">

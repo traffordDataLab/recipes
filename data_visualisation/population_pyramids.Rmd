@@ -20,7 +20,6 @@ A population pyramid visualises the age-gender distribution. This recipe uses th
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis, Office for National Statistics</a></p>
-<br />
 </div>
 
 <div class = "col-md-4">
@@ -29,7 +28,6 @@ A population pyramid visualises the age-gender distribution. This recipe uses th
 <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
 <li><a href="https://cran.r-project.org/web/packages/ggpol/index.html" target="_blank">ggpol</a></li>
 </ul>
-<br />
 </div>
   
 <div class = "col-md-4">

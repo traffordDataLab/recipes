@@ -1,4 +1,5 @@
 ---
+title: ""
 output:
   html_document:
     highlight: textmate
@@ -12,9 +13,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- Use the title as the filename for your .Rmd file -->
-<h1>Title of recipe</h1>
-
 <!-- Provide a short summary of your recipe -->
 Summary of recipe.
 
@@ -25,21 +23,20 @@ Summary of recipe.
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="#" target="_blank">Link to data source</a></p>
-<br />
 </div>
 
 <!-- List the R packages used and their page on cran.r-project.org -->
 <div class = "col-md-4">
 <strong>R packages</strong>
 <ul>
-<li><a href="#" target="_blank">Package name</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
+  <li><a href="#" target="_blank">Package name</a></li>
 </ul>
-<br />
 </div>
 
 <!-- Create an image of your output and store it in the img folder-->
 <div class = "col-md-4">
-<!-- <img src="" alt="Figure title"> -->
+<!-- <img src="img/" alt="Figure title"> -->
 </div>
 </div>
 
