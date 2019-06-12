@@ -49,7 +49,7 @@ library(tidyverse) ; library(sf)
 
 3. Select the 'APIs' button on the right hand side and copy the URL path under GeoJSON.
 
-4. Paste the URL into the dsn argument of `st_read()`.
+4.  Paste the URL path into the `st_read()` function and retrieve the data.
 
 ```{r, eval=FALSE}
 sf <- st_read("https://opendata.arcgis.com/datasets/2c5b8eb836c7475ba3b305106ac9dfc3_0.geojson")
@@ -93,7 +93,7 @@ library(tidyverse) ; library(sf)
 
 5. Highlight and copy the URL that appears in the 'Query URL' box.
 
-6. Use the URL in the dsn argument of `st_read()` and retrieve the data.
+6. Paste the URL path into the `st_read()` function and retrieve the data.
 
 ```{r, eval=FALSE}
 sf <- st_read("https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_GB_BGC/MapServer/0/query?where=UPPER(lad18nm)%20like%20'%25TRAFFORD%25'&outFields=lad18nm,long,lat,lad18cd&outSR=4326&f=json")

@@ -555,7 +555,7 @@ Ingredients
 <ol start="2" style="list-style-type: decimal">
 <li><p>Visit the <a href="https://geoportal.statistics.gov.uk/" target="_blank">ONS Open Geography Portal</a> and select your local authority boundary: Boundaries &gt; Administrative Boundaries &gt; Local Authority Districts. For example, choose <a href="https://geoportal.statistics.gov.uk/datasets/local-authority-districts-december-2018-boundaries-uk-bgc" target="_blank">Local Authority Districts (December 2018) Boundaries UK BGC</a> from the list.</p></li>
 <li><p>Select the ‘APIs’ button on the right hand side and copy the URL path under GeoJSON.</p></li>
-<li><p>Paste the URL into the dsn argument of <code>st_read()</code>.</p></li>
+<li><p>Paste the URL path into the <code>st_read()</code> function and retrieve the data.</p></li>
 </ol>
 <pre class="r"><code>sf &lt;- st_read(&quot;https://opendata.arcgis.com/datasets/2c5b8eb836c7475ba3b305106ac9dfc3_0.geojson&quot;)</code></pre>
 <ol start="5" style="list-style-type: decimal">
@@ -588,7 +588,7 @@ Ingredients
 <li><p>Select the ‘API Explorer’ button at the top of the page.</p></li>
 <li><p>Navigate to the ‘Query’ box and click the <strong>+</strong> next to the ‘Where’ parameter. Select ‘lad18nm | Text’ from the ‘Attributes’ pick list and enter your local authority name in the box. Press Enter on your keyboard.</p></li>
 <li><p>Highlight and copy the URL that appears in the ‘Query URL’ box.</p></li>
-<li><p>Use the URL in the dsn argument of <code>st_read()</code> and retrieve the data.</p></li>
+<li><p>Paste the URL path into the <code>st_read()</code> function and retrieve the data.</p></li>
 </ol>
 <pre class="r"><code>sf &lt;- st_read(&quot;https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_GB_BGC/MapServer/0/query?where=UPPER(lad18nm)%20like%20'%25TRAFFORD%25'&amp;outFields=lad18nm,long,lat,lad18cd&amp;outSR=4326&amp;f=json&quot;)</code></pre>
 </div>
