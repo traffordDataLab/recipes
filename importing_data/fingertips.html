@@ -516,7 +516,7 @@ $(document).ready(function () {
 </div>
 
 
-<p><a href="https://www.gov.uk/government/organisations/public-health-england" target="_blank">Public Health England</a> provide a wealth of data relating to health and wellbeing on <a href="https://fingertips.phe.org.uk" target="_blank">fingertips.phe.org.uk</a>. The <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package allows you to download data from the <a href="https://fingertips.phe.org.uk/api" target="_blank">Fingertips API</a> from the comfort of your R session.</p>
+<p><a href="https://www.gov.uk/government/organisations/public-health-england" target="_blank">Public Health England</a> provide a wealth of data relating to health and wellbeing on <a href="https://fingertips.phe.org.uk" target="_blank">fingertips.phe.org.uk</a>. The <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package allows you to download data from the <a href="https://fingertips.phe.org.uk/api" target="_blank">Fingertips API</a> from the comfort of your R session. In this recipe we’ll download local authority values for the <a href="https://fingertips.phe.org.uk/search/91414" target="_blank">alcohol related admissions</a> indicator.</p>
 <h3>
 Ingredients
 </h3>
@@ -554,7 +554,7 @@ Ingredients
 </ol>
 <pre class="r"><code>library(tidyverse); library(fingertipsR) ; library(formattable)</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Run the <code>select_indicators()</code> function from the <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package. Enter your search terms into the popup browser window and find the corresponding <strong>IndicatorID</strong> in the table. We are interested in <a href="https://fingertips.phe.org.uk/search/91414" target="_blank">alcohol related admissions</a> so we need <strong>IndicatorID</strong> = 91414. When you are done click ‘Done’.</li>
+<li>Run the <code>select_indicators()</code> function from the <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package. Enter your search terms into the popup browser window and find the corresponding <strong>IndicatorID</strong> in the table. We are interested in alcohol related admissions (narrow measure) so we need <strong>IndicatorID</strong> = 91414. When you’re done click ‘Done’.</li>
 </ol>
 <pre class="r"><code>select_indicators()</code></pre>
 <ol start="3" style="list-style-type: decimal">
