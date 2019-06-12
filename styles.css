@@ -1,28 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-@font-face 
-{
+@font-face {
   font-family: 'Open Sans', sans-serif;
 }
 
-div 
-{
+div {
   font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, .header
-{
+h1, h2, h3, h4, h5, h6, .header {
   font-family: 'Open Sans', sans-serif;
 }
 
-a 
-{
+a {
   color: #fc6721;
     text-decoration: none;
 }
 
-a:hover
-{
+a:hover {
   color: #fc6721;
     text-decoration: underline;
 }
@@ -35,30 +30,25 @@ a:focus {
 }
 
 /* Remove list bullets */
-ul 
-{
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 /* Left align ordered list */
-ol 
-{
+ol {
   padding: 0;   
-  margin: 0;
-  margin-left: 1em;
+  margin: 0 0 0 1em;
 }
 
-div.titlebar
-{ 
-  background-color: #F5F5F5; 
+div.titlebar { 
+  background-color: #eee; 
   border-radius: 5px; 
   padding: 8px 0 1px 5px;
 }
   
-p.caption 
-{
+p.caption {
   font-size: 0.9em;
   font-style: italic;
   color: grey;

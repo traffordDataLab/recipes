@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<a id="edit" href="" class="btn btn-default"><i class="fa fa-edit"></i> Edit this page</a>
+
+<div class="main-container" style="padding-left: 5px;"><a href="../index.html">&lt; back to recipes</a></div>
+
+<script>
+  // create the href property for the edit page button
+  var editHref = 'https://github.com/trafforddatalab/recipes/edit/master/';
+  var pageUrl = location.href;
+  editHref += pageUrl.substring(pageUrl.indexOf('/recipes/')+9, pageUrl.length-5) + '.Rmd';
+
+  var editBtn = document.getElementById('edit');  // get reference to the button
+  editBtn.href = editHref;
+</script>

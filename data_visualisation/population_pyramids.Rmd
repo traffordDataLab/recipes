@@ -1,20 +1,17 @@
 ---
+title: "Population pyramids"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
+    includes:
+          in_header: ../header.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<a href="https://github.com/trafforddatalab/recipes/edit/master/data_visualisation/population_pyramids.Rmd" class="btn btn-default"><i class="fa fa-edit"></i> Edit this page</a>
-
-<h1>Population pyramids</h1>
 
 A population pyramid visualises the age-gender distribution. This recipe uses the latest <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland" target="_blank">mid-year population estimates</a> for a local authority and visualises them by gender and 5-year age bands.
 
@@ -22,7 +19,7 @@ A population pyramid visualises the age-gender distribution. This recipe uses th
 <div class = "row">
 <div class = "col-md-4">
 <strong>Data sources</strong>
-<p><a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis, ONS</a></p>
+<p><a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis, Office for National Statistics</a></p>
 <br />
 </div>
 
@@ -47,16 +44,16 @@ A population pyramid visualises the age-gender distribution. This recipe uses th
 library(tidyverse) ; library(ggpol)
 ```
 
-2. Visit <a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis</a> and select your chosen Geography, Date, Age and Sex. Here we've chosen every single year of age (Age) and Male and Female (Sex).
+2. Visit <a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis</a> and select your chosen **Geography**, **Date**, **Age** and **Sex**. Here we've chosen Trafford (**Geography**), 2017 (**Date**), individual ages (**Age**) and both genders (**Sex**).
 
-3. Navigate to 'Format / Layout' and choose 'Nomis API' as your format. Hit the 'Download Data' button. Select the 'Tabulation links' tab and right-click the 'Comma Separated Values (csv)' file to obtain the URL path. 
+3. Navigate to 'Format / Layout' and choose 'Nomis API' as your format. Punch the 'Download Data' button. Select the 'Tabulation links' tab and right-click the 'Comma Separated Values (csv)' file to obtain the URL path. 
 
 4. Paste the URL in the path argument of `read_csv`.
 ```{r, eval=FALSE}
 df <- read_csv("http://www.nomisweb.co.uk/api/v01/dataset/NM_2002_1.data.csv?geography=E08000009&date=latest&gender=1,2&c_age=101...191&measures=20100&select=date_name,geography_name,geography_code,gender_name,c_age_name,measures_name,obs_value,obs_status_name")
 ```
 
-5. Prepare the data for visualisation. Here we group the individual years into age bands and calculate the corresponding population by gender.
+5. Prepare the data for visualisation. Here we group the individual ages into bands and calculate the population size for each gender.
 ```{r, eval=FALSE}
 population <- df %>% 
   select(gender = GENDER_NAME, age = C_AGE_NAME, n = OBS_VALUE) %>% 

@@ -1,20 +1,17 @@
 ---
+title: "Vector boundaries"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
+    includes:
+          in_header: ../header.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<a href="https://github.com/trafforddatalab/recipes/edit/master/gis/download_local_authority_boundaries.Rmd" class="btn btn-default"><i class="fa fa-edit"></i> Edit this page</a>
-
-<h1>Download local authority boundaries</h1>
 
 The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/" target="_blank">Open Geography Portal</a> provide a range of geospatial datasets under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3" target="_blank">Open Government Licence 3.0</a>. Digital vector boundaries for different administrative and statistical geographies are  available to freely download. Here we'll download a single local authority boundary file.
 
@@ -36,7 +33,7 @@ The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/
 </div>
   
 <div class = "col-md-4">
-<img src="img/download_local_authority_boundaries.png" alt="Population pyramid">
+<img src="img/vector_boundaries.png" alt="Population pyramid">
 </div>
 </div>
 

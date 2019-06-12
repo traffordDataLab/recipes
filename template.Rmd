@@ -2,36 +2,33 @@
 output:
   html_document:
     highlight: textmate
-    css: styles.css
+    css: ../styles.css
     code_folding: hide
+    includes:
+          in_header: ../header.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- Update the URL path with link to your editable .Rmd -->
-<a href="https://github.com/trafforddatalab/recipes/edit/master/#.Rmd" class="btn btn-default"><i class="fa fa-edit"></i> Edit this page</a>
-
 <!-- Use the title as the filename for your .Rmd file -->
 <h1>Title of recipe</h1>
 
-<!-- Provide a short summary of the recipe -->
+<!-- Provide a short summary of your recipe -->
 Summary of recipe.
 
 <h3>Ingredients</h3>  
 <div class = "row">
 
-<!-- Acknowledge and link to the data source -->
+<!-- Provide a link to the data source -->
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="#" target="_blank">Link to data source</a></p>
 <br />
 </div>
 
-<!-- List the R packages used and link to CRAN -->
+<!-- List the R packages used and their page on cran.r-project.org -->
 <div class = "col-md-4">
 <strong>R packages</strong>
 <ul>
