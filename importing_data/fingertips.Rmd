@@ -47,7 +47,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse); library(fingertipsR) ; library(formattable)
 ```
 
-2. Run the `select_indicators()` function from the <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package. Enter your search terms into the popup browser window and find the corresponding **IndicatorID** in the table. We are interested in <a href="https://fingertips.phe.org.uk/search/91414" target="_blank">alcohol related admissions</a> so we need **IndicatorID** = 91414.
+2. Run the `select_indicators()` function from the <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package. Enter your search terms into the popup browser window and find the corresponding **IndicatorID** in the table. We are interested in <a href="https://fingertips.phe.org.uk/search/91414" target="_blank">alcohol related admissions</a> so we need **IndicatorID** = 91414. When you are done click 'Done'.
 
 ```{r, eval=FALSE}
 select_indicators()
@@ -58,12 +58,11 @@ select_indicators()
 indicator_metadata(IndicatorID = 91414) %>% formattable()
 ```
 
-4. Next we need to choose our area type. To obtain a list of area types we'll use the `area_types()` function. We want values of the indicator for a local authority so need **AreaTypeID** = 101.
+4. Next we need to choose our area type. To obtain a list of area types we'll use the `area_types()` function. We want values of the indicator for a local authority so need **AreaTypeID** = 101. Note that not all indicators are available at all area types.
 ```{r, eval=FALSE}
 area_types() %>%
   select(AreaTypeID, AreaTypeName) %>%
-  distinct() %>% 
-  View()
+  distinct()
 ```
 
 5. Finally, we supply the **IndicatorID** and **AreaTypeID** to the `fingertips_data()` function to retrieve the data from the API. The results are then filtered by the local authority of interest.

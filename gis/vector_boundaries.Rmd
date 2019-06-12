@@ -37,9 +37,7 @@ The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/
 
 ### Instructions
 
-<div class = "titlebar">
-<b>Method 1: download all boundaries and filter in R</b>
-</div>
+<div class = "titlebar"><b>Method 1: download all boundaries and filter in R</b></div>
 <br />
 
 1. Load the necessary R packages.
@@ -79,9 +77,7 @@ st_write(sf, "local_authority_boundary.geojson")
 
 <br />
 
-<div class = "titlebar">
-<b>Method 2: filter using the API</b>
-</div>
+<div class = "titlebar"><b>Method 2: filter using the API</b></div>
 <br />
 
 1. Load the necessary R packages.
