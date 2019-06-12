@@ -23,7 +23,7 @@ These are recipes to common tasks like retrieving data from <a href="https://www
 <h4>Want to contribute?</h4>
 These recipes have been created using the <a href="https://rmarkdown.rstudio.com/" target="_blank">rmarkdown</a> R package which makes editing easy. Any GitHub user (<a href="https://github.com/" target="_blank">sign-up at github.com</a>) can make changes to a recipe by clicking <img src="edit_button.png" alt="Edit button" style="width:6em;">. Once you've made your edits you can submit your changes for approval. If you'd rather just make a comment you can post an <a href="https://github.com/trafforddatalab/recipes/issues" target="_blank">issue</a> on GitHub. 
 
-New recipes are also very welcome. A recipe template is available to download from <a href="https://github.com/trafforddatalab/recipes/template" target="_blank">here</a>. When you've completed your recipe send us a <a href="https://help.github.com/en/articles/about-pull-requests" target="_blank">pull request</a>.
+New recipes are also very welcome. A recipe template is available to download from <a href="https://github.com/trafforddatalab/recipes/template.Rmd" target="_blank">here</a>. When you've completed your recipe send us a <a href="https://help.github.com/en/articles/about-pull-requests" target="_blank">pull request</a>.
 
 <br />
 
