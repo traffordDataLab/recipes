@@ -43,6 +43,7 @@ New recipes are also very welcome. A recipe template is available to download fr
 
 <div class = "titlebar"><b>Data visualisation</b></div>
 <ul>
+    <li><a href="data_visualisation/parliament_chart.html">Parliament chart</a></li>
     <li><a href="data_visualisation/population_pyramids.html">Population pyramids</a></li>
 </ul>
 

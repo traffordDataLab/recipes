@@ -93,10 +93,10 @@ library(tidyverse) ; library(sf)
 
 5. Highlight and copy the URL that appears in the 'Query URL' box.
 
-6. Paste the URL path into the `st_read()` function and retrieve the data.
+6. Paste the URL path into the `st_read()` function and retrieve the data. Note that we've added on 'geojson'.
 
 ```{r, eval=FALSE}
-sf <- st_read("https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_GB_BGC/MapServer/0/query?where=UPPER(lad18nm)%20like%20'%25TRAFFORD%25'&outFields=lad18nm,long,lat,lad18cd&outSR=4326&f=json")
+sf <- st_read("https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_UK_BGC/MapServer/0/query?where=lad18nm%20=%20%27Trafford%27&outFields=lad18cd,lad18nm,long,lat&outSR=4326&f=geojson")
 ```
 
 ### Notes

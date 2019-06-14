@@ -588,9 +588,9 @@ Ingredients
 <li><p>Select the ‘API Explorer’ button at the top of the page.</p></li>
 <li><p>Navigate to the ‘Query’ box and click the <strong>+</strong> next to the ‘Where’ parameter. Select ‘lad18nm | Text’ from the ‘Attributes’ pick list and enter your local authority name in the box. Press Enter on your keyboard.</p></li>
 <li><p>Highlight and copy the URL that appears in the ‘Query URL’ box.</p></li>
-<li><p>Paste the URL path into the <code>st_read()</code> function and retrieve the data.</p></li>
+<li><p>Paste the URL path into the <code>st_read()</code> function and retrieve the data. Note that we’ve added on ‘geojson’.</p></li>
 </ol>
-<pre class="r"><code>sf &lt;- st_read(&quot;https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_GB_BGC/MapServer/0/query?where=UPPER(lad18nm)%20like%20'%25TRAFFORD%25'&amp;outFields=lad18nm,long,lat,lad18cd&amp;outSR=4326&amp;f=json&quot;)</code></pre>
+<pre class="r"><code>sf &lt;- st_read(&quot;https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_UK_BGC/MapServer/0/query?where=lad18nm%20=%20%27Trafford%27&amp;outFields=lad18cd,lad18nm,long,lat&amp;outSR=4326&amp;f=geojson&quot;)</code></pre>
 </div>
 <div id="notes" class="section level3">
 <h3>Notes</h3>

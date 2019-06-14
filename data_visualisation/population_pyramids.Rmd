@@ -31,7 +31,7 @@ A population pyramid visualises the age-gender distribution. This recipe uses th
 </div>
   
 <div class = "col-md-4">
-<img src="img/population_pyramid.png" alt="Population pyramid">
+<img src="img/population_pyramids.png" alt="Population pyramid">
 </div>
 </div>
 
