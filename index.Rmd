@@ -10,13 +10,12 @@ output:
 <style>
 
 ul {
-  list-style-type: circle;
-  padding: 0 0 0 1em;
+  padding: 0 0 0 0.3em;
 }
 
 </style>
 
-<br /><br />
+<br />
 
 These are recipes to common tasks like retrieving data from <a href="https://www.nomisweb.co.uk/" target="_blank">Nomis</a>, geocoding addresses, and creating data visualisations like population pyramids. All the <a href="https://cran.r-project.org/" target="_blank">R</a> code is provided along with step by step instructions. For those wanting an introductory guide to R check out <a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science</a>.
 

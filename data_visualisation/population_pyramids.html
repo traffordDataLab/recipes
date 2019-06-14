@@ -624,8 +624,7 @@ ggplot() +
   geom_col(data = filter(population, area_name == &quot;Trafford&quot;), 
            aes(x = ageband, y = percent, fill = gender, alpha = 0.5)) + 
   geom_line(data = filter(population, area_name == &quot;England&quot;), 
-            aes(x = ageband, y = percent, group = gender, colour = gender), stat = &quot;identity&quot;,
-            size = 1) +
+            aes(x = ageband, y = percent, group = gender, colour = gender), stat = &quot;identity&quot;, size = 1) +
   scale_fill_manual(values = c(&quot;#7FC5DC&quot;, &quot;#7FDCC5&quot;), labels = c(&quot;Female&quot;, &quot;Male&quot;)) +
   scale_colour_manual(values = c(&quot;#7FC5DC&quot;, &quot;#7FDCC5&quot;), labels = c(&quot;Female&quot;, &quot;Male&quot;)) +
   facet_share(~gender, dir = &quot;h&quot;, scales = &quot;free&quot;, reverse_num = TRUE) +
