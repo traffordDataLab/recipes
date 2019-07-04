@@ -42,7 +42,7 @@ A population pyramid visualises the age-gender distribution. This recipe uses th
 library(tidyverse) ; library(ggpol)
 ```
 
-2. Visit <a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis</a> and select your chosen **Geography**, **Date**, **Age** and **Sex**. Here we've chosen Trafford (**Geography**), 2017 (**Date**), individual ages (**Age**) and both genders (**Sex**).
+2. Visit <a href="https://www.nomisweb.co.uk/query/construct/summary.asp?mode=construct&version=0&dataset=2002" target="_blank">Nomis</a> and select your chosen **Geography**, **Date**, **Age** and **Sex**. Here we've chosen Trafford (**Geography**), 2018 (**Date**), individual ages (**Age**) and both genders (**Sex**).
 
 3. Navigate to 'Format / Layout' and choose 'Nomis API' as your format. Punch the 'Download Data' button. Select the 'Tabulation links' tab and right-click the 'Comma Separated Values (csv)' file to obtain the URL path. 
 
@@ -76,7 +76,7 @@ ggplot(population, aes(x = ageband, y = n, fill = gender)) +
   facet_share(~gender, dir = "h", scales = "free", reverse_num = TRUE) +
   coord_flip() +
   labs(x = NULL, y = NULL, 
-       title = "Age composition of Trafford in mid-2017",
+       title = "Age composition of Trafford in mid-2018",
        caption = "Source: Office for National Statistics", 
        fill = NULL) +
   theme_minimal() +
@@ -103,6 +103,8 @@ ggsave("population_pyramids.png", dpi = 300)
 
 If you want to compare the age distribution of your chosen area with the total population of England you can use this code.
 ```{r, eval=FALSE}
+library(tidyverse) ; library(ggpol)
+
 df <- read_csv("http://www.nomisweb.co.uk/api/v01/dataset/NM_2002_1.data.csv?geography=2092957699,E08000009&date=latest&gender=1,2&c_age=101...191&measures=20100&select=date_name,geography_name,geography_code,gender_name,c_age_name,measures_name,obs_value,obs_status_name")
 
 population <- df %>% 
@@ -131,7 +133,7 @@ ggplot() +
   facet_share(~gender, dir = "h", scales = "free", reverse_num = TRUE) +
   coord_flip() +
   labs(x = NULL, y = "%", 
-       title = "Age composition of Trafford compared with England in mid-2017",
+       title = "Age composition of Trafford compared with England in mid-2018",
        caption = "Source: Office for National Statistics", 
        fill = NULL) +
   theme_minimal() +
