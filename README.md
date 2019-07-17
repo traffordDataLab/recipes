@@ -10,4 +10,4 @@ Contributors are welcome to create new or edit existing recipes. Instructions on
 
 #### Ground rules
 - R scripts must use packages that work with the <a href="https://www.tidyverse.org/" target="_blank">tidyverse</a>.
-- Only datasets available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank">Open Government Licence v3.0</a> can be used.
+- Only open data can be used.
