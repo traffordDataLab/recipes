@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <!-- Provide a short summary of your recipe -->
-The <a href=“https://openaq.org” target=“_blank”>OpenAQ</a> platform gathers and shares open air quality data from around the world. 162 automatic monitoring stations are listed on OpenAQ for the UK with hourly NO<sub>2</sub> readings available over the last 90 days. Many of the stations also record levels of coarse and fine particulate matter (PM<sub>10</sub> and PM<sub>2.5</sub>). This recipe will retrieve hourly mean NO<sub>2</sub> concentrations from the Manchester Piccadilly monitoring station and plot the results.
+The <a href="https://openaq.org" target=“_blank”>OpenAQ</a> platform gathers and shares open air quality data from around the world. 162 automatic monitoring stations are listed on OpenAQ for the UK with hourly NO<sub>2</sub> readings available over the last 90 days. Many of the stations also record levels of coarse and fine particulate matter (PM<sub>10</sub> and PM<sub>2.5</sub>). This recipe will retrieve hourly mean NO<sub>2</sub> concentrations from the Manchester Piccadilly monitoring station and plot the results.
 
 <h3>Ingredients</h3>  
 <div class = "row">
