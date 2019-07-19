@@ -20,7 +20,7 @@ The English Indices of Deprivation (IMD) are a measure of relative deprivation i
 
 <div class = "col-md-4">
 <strong>Data sources</strong>
-<p><a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015" target="_blank">English indices of deprivation 2015</a></p>
+<p><a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015" target="_blank">English Indices of Deprivation 2015</a></p>
 </div>
 
 <div class = "col-md-4">
@@ -50,7 +50,7 @@ library(tidyverse) ; library(janitor) ; library(sf)
 la <- "Wigan"
 ```
 
-3. Retrieve the Indices of Multiple Deprivation (2015) for Wigan.
+3. Retrieve the English Indices of Deprivation (2015) for Wigan.
 ```{r, eval=FALSE}
 imd <- read.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/467774/File_7_ID_2015_All_ranks__deciles_and_scores_for_the_Indices_of_Deprivation__and_population_denominators.csv") %>% 
   clean_names() %>% 
@@ -89,7 +89,7 @@ ggplot() +
                     labels = c("Most\ndeprived", 2:9, "Least\ndeprived")) +
   labs(title = "Index of Multiple Deprivation (2015)",
        subtitle = paste0(la, "'s Lower-layer Super Output Areas by decile"),
-       caption = "Source: Indices of Multiple Deprivation (2015), MHCLG \n Contains Ordnance Survey data © Crown copyright and database right 2019",
+       caption = "Source: English Indices of Deprivation (2015), MHCLG \n Contains Ordnance Survey data © Crown copyright and database right 2019",
        x = NULL, y = NULL,
        fill = "") +
   coord_sf(crs = st_crs(4326), datum = NA) +
