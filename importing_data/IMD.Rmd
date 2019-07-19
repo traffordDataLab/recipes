@@ -1,0 +1,115 @@
+---
+title: "IMD"
+output:
+  html_document:
+    highlight: textmate
+    css: ../styles.css
+    code_folding: hide
+    includes:
+          in_header: ../header.html
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The English Indices of Deprivation (IMD) are a measure of relative deprivation in 32,844 small areas. The code below creates a choropleth map showing the Index of Multiple Deprivation 2015 by decile in Wigan. The English Indices of Deprivation 2019 are expected to be published in September / October 2019 so keep your <a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019" target="_blank">eyes peeled</a>.
+
+<h3>Ingredients</h3>  
+<div class = "row">
+
+<div class = "col-md-4">
+<strong>Data sources</strong>
+<p><a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2015" target="_blank">English indices of deprivation 2015</a></p>
+</div>
+
+<div class = "col-md-4">
+<strong>R packages</strong>
+<ul>
+  <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/janitor/index.html" target="_blank">janitor</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/sf/index.html" target="_blank">sf</a></li>
+</ul>
+</div>
+
+<div class = "col-md-4">
+<img src="img/imd.png" alt="IMD map of Wigan">
+</div>
+</div>
+
+### Instructions
+
+<!-- Load the R packages first -->
+1. Load the necessary R packages.
+```{r, eval=FALSE}
+library(tidyverse) ; library(janitor) ; library(sf)
+```
+
+2. Create a string object with the name of your local authority, e.g. Wigan.
+```{r, eval=FALSE}
+la <- "Wigan"
+```
+
+3. Retrieve the Indices of Multiple Deprivation (2015) for Wigan.
+```{r, eval=FALSE}
+imd <- read.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/467774/File_7_ID_2015_All_ranks__deciles_and_scores_for_the_Indices_of_Deprivation__and_population_denominators.csv") %>% 
+  clean_names() %>% 
+  filter(grepl(la, local_authority_district_name_2013, ignore.case = TRUE)) %>% 
+  select(lsoa11cd = 1, 5:28) %>% 
+  gather(variable, value, -lsoa11cd) %>% 
+  mutate(measure = case_when(str_detect(variable, "score") ~ "score", 
+                             str_detect(variable, "decile") ~ "decile", 
+                             str_detect(variable, "rank") ~ "rank"),
+         index_domain = case_when(str_detect(variable, "index_of_multiple_deprivation") ~ "Index of Multiple Deprivation", 
+                                  str_detect(variable, "income") ~ "Income", 
+                                  str_detect(variable, "employment") ~ "Employment",
+                                  str_detect(variable, "education") ~ "Education, Skills and Training",
+                                  str_detect(variable, "health") ~ "Health Deprivation and Disability",
+                                  str_detect(variable, "crime") ~ "Crime",
+                                  str_detect(variable, "barriers") ~ "Barriers to Housing and Services",
+                                  str_detect(variable, "living") ~ "Living Environment")) %>% 
+  select(lsoa11cd, measure, value, index_domain) %>% 
+  spread(measure, value)
+```
+
+4. Retrieve a vector boundary layer of Lower-layer Super Output areas for Wigan and join the deprivation data to it.
+```{r, eval=FALSE}
+lsoa <- st_read(paste0("https://ons-inspire.esriuk.com/arcgis/rest/services/Census_Boundaries/Lower_Super_Output_Areas_December_2011_Boundaries/MapServer/2/query?where=UPPER(lsoa11nm)%20like%20'%25", URLencode(toupper(la), reserved = TRUE), "%25'&outFields=*&outSR=4326&f=geojson")) %>% 
+  st_as_sf(crs = 4326, coords = c("long", "lat")) %>% 
+  left_join(imd, by = "lsoa11cd")
+```
+
+5. Plot the results as a map. If you want one of the deprivation domains rather than the Index just filter the data plotted.
+```{r, eval=FALSE}
+ggplot() +
+  geom_sf(data = filter(lsoa, index_domain == "Index of Multiple Deprivation"), 
+          aes(fill = factor(decile)), alpha = 0.8, colour = "#FFFFFF", size = 0.2) +
+  scale_fill_manual(breaks = 1:10,
+                    values = c("#453B52", "#454F69", "#3F657E", "#317B8D", "#239296", "#26A898", "#43BD93", "#6AD189", "#98E37D", "#CAF270"),
+                    labels = c("Most\ndeprived", 2:9, "Least\ndeprived")) +
+  labs(title = "Index of Multiple Deprivation (2015)",
+       subtitle = paste0(la, "'s Lower-layer Super Output Areas by decile"),
+       caption = "Source: Indices of Multiple Deprivation (2015), MHCLG \n Contains Ordnance Survey data © Crown copyright and database right 2019",
+       x = NULL, y = NULL,
+       fill = "") +
+  coord_sf(crs = st_crs(4326), datum = NA) +
+  theme_void() +
+  theme(plot.margin = unit(c(0.5,0.5,0.5,0.5), "cm"),
+        plot.title = element_text(size = 18, face = "bold"),
+        plot.subtitle = element_text(size = 12),
+        plot.caption = element_text(size = 9, colour = "#757575", hjust = 1, margin = margin(t = 15)),
+        legend.position = "bottom") +
+  guides(fill = guide_legend(label.position = "bottom", 
+                             label.hjust = 0,
+                             direction = "horizontal",
+                             nrow = 1,
+                             keyheight = unit(2, units = "mm"), 
+                             keywidth = unit(5, units = "mm")))
+```
+
+6. Output the map as a PNG file.
+```{r, eval=FALSE}
+ggsave("imd.png", dpi = 300)
+```
+
+<br /><br />

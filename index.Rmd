@@ -30,6 +30,7 @@ New recipes are also very welcome. A recipe template is available to download fr
 <ul>
     <li><a href="importing_data/air_quality.html">Air quality</a></li>
     <li><a href="importing_data/fingertips.html">Fingertips</a></li>
+    <li><a href="importing_data/IMD.html">IMD</a></li>
 </ul>
 
 <br />
