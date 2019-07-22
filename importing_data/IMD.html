@@ -580,7 +580,7 @@ Ingredients
 <ol start="4" style="list-style-type: decimal">
 <li>Retrieve a vector boundary layer of Lower-layer Super Output areas for Wigan and join the deprivation data to it.</li>
 </ol>
-<pre class="r"><code>lsoa &lt;- st_read(paste0(&quot;https://ons-inspire.esriuk.com/arcgis/rest/services/Census_Boundaries/Lower_Super_Output_Areas_December_2011_Boundaries/MapServer/2/query?where=UPPER(lsoa11nm)%20like%20'%25&quot;, URLencode(toupper(la), reserved = TRUE), &quot;%25'&amp;outFields=*&amp;outSR=4326&amp;f=geojson&quot;)) %&gt;% 
+<pre class="r"><code>lsoa &lt;- st_read(paste0(&quot;https://ons-inspire.esriuk.com/arcgis/rest/services/Census_Boundaries/Lower_Super_Output_Areas_December_2011_Boundaries/MapServer/2/query?where=UPPER(lsoa11nm)%20like%20'%25&quot;, URLencode(toupper(la), reserved = TRUE), &quot;%25'&amp;outFields=lsoa11cd,lsoa11nm&amp;outSR=4326&amp;f=geojson&quot;)) %&gt;% 
   st_as_sf(crs = 4326, coords = c(&quot;long&quot;, &quot;lat&quot;)) %&gt;% 
   left_join(imd, by = &quot;lsoa11cd&quot;)</code></pre>
 <ol start="5" style="list-style-type: decimal">

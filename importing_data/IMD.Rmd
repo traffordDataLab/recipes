@@ -74,7 +74,7 @@ imd <- read.csv("https://assets.publishing.service.gov.uk/government/uploads/sys
 
 4. Retrieve a vector boundary layer of Lower-layer Super Output areas for Wigan and join the deprivation data to it.
 ```{r, eval=FALSE}
-lsoa <- st_read(paste0("https://ons-inspire.esriuk.com/arcgis/rest/services/Census_Boundaries/Lower_Super_Output_Areas_December_2011_Boundaries/MapServer/2/query?where=UPPER(lsoa11nm)%20like%20'%25", URLencode(toupper(la), reserved = TRUE), "%25'&outFields=*&outSR=4326&f=geojson")) %>% 
+lsoa <- st_read(paste0("https://ons-inspire.esriuk.com/arcgis/rest/services/Census_Boundaries/Lower_Super_Output_Areas_December_2011_Boundaries/MapServer/2/query?where=UPPER(lsoa11nm)%20like%20'%25", URLencode(toupper(la), reserved = TRUE), "%25'&outFields=lsoa11cd,lsoa11nm&outSR=4326&f=geojson")) %>% 
   st_as_sf(crs = 4326, coords = c("long", "lat")) %>% 
   left_join(imd, by = "lsoa11cd")
 ```
