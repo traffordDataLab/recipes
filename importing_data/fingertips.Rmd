@@ -57,13 +57,13 @@ indicator <- select_indicators()
 indicator_metadata(IndicatorID = indicator) %>% View()
 ```
 
-4. Now we need pass the **IndicatorID** to the `fingertips_data()` function to retrieve the data from the <a href="https://fingertips.phe.org.uk/api" target="_blank">Fingertips API</a>.
+4. Next we need to pass the **IndicatorID** to the `fingertips_data()` function to retrieve the data from the <a href="https://fingertips.phe.org.uk/api" target="_blank">Fingertips API</a>.
 
 ```{r, eval=FALSE}
 df <- fingertips_data(IndicatorID = indicator)
 ```
 
-5. Next we create a string object with the name of your local authority, e.g. Salford.
+5. We then create a string object with the name of your local authority, e.g. Salford.
 ```{r, eval=FALSE}
 la <- "Salford"
 ```
