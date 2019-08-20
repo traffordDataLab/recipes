@@ -14,8 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <a href="https://www.gov.uk/government/organisations/public-health-england" target="_blank">Public Health England</a>
- provide a wealth of data relating to health and wellbeing on <a href="https://fingertips.phe.org.uk" target="_blank">fingertips.phe.org.uk</a>. The <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package allows you to download data from the <a href="https://fingertips.phe.org.uk/api" target="_blank">Fingertips API</a> from the comfort of your R session. In this recipe we'll download local authority values for the <a href="https://fingertips.phe.org.uk/search/91414" target="_blank">alcohol related admissions</a> indicator.
-
+ provide a wealth of data relating to health and wellbeing on the <a href="https://fingertips.phe.org.uk" target="_blank">Fingertips website</a>. The <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package allows you to extract the data behind the Fingertips website and recreate its visualisations using the companion <a href="https://cran.r-project.org/web/packages/fingertipscharts/index.html" target="_blank">fingertipscharts</a> package. In this recipe we'll compare the <a href="https://fingertips.phe.org.uk/search/30311" target="_blank">percentage of 5 year olds in a local authority who've received two doses of MMR</a> over time using England as a comparator.
+ 
 <h3>Ingredients</h3>  
 <div class = "row">
 
@@ -29,12 +29,12 @@ knitr::opts_chunk$set(echo = TRUE)
 <ul>
   <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
   <li><a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a></li>
-  <li><a href="https://cran.r-project.org/web/packages/formattable/index.html" target="_blank">formattable</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/fingertipscharts/index.html" target="_blank">fingertipscharts</a></li>
 </ul>
 </div>
 
 <div class = "col-md-4">
-<img src="img/fingertips.png" alt="Metadata for indicator">
+<img src="img/fingertips.png" alt="Time series chart">
 </div>
 </div>
 
@@ -44,35 +44,52 @@ knitr::opts_chunk$set(echo = TRUE)
 <!-- Load the R packages first -->
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
-library(tidyverse); library(fingertipsR) ; library(formattable)
+library(tidyverse); library(fingertipsR) ; library(fingertipscharts)
 ```
 
-2. Run the `select_indicators()` function from the <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package. Enter your search terms into the popup browser window and find the corresponding **IndicatorID** in the table. We are interested in alcohol related admissions (narrow measure) so we need **IndicatorID** = 91414. When you're done click 'Done'.
+2. Run the `select_indicators()` function from the <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package. Enter your search terms into the popup browser window (e.g. "MMR vaccination") and find the corresponding **IndicatorID** in the table. Now select the row and click 'Done'. Close the browser and return to your R session. The **IndicatorID**, in this case 30311, will be stored in the object called 'indicator'.
+```{r, eval=FALSE}
+indicator <- select_indicators()
+```
+
+3. Now let's have a look at the metadata for that indicator to double check it is the one we want.
+```{r, eval=FALSE}
+indicator_metadata(IndicatorID = indicator) %>% View()
+```
+
+4. Now we need pass the **IndicatorID** to the `fingertips_data()` function to retrieve the data from the <a href="https://fingertips.phe.org.uk/api" target="_blank">Fingertips API</a>.
 
 ```{r, eval=FALSE}
-select_indicators()
+df <- fingertips_data(IndicatorID = indicator)
 ```
 
-3. Now let's have a look at the metadata for that indicator to check it is the one we want.
+5. Next we create a string object with the name of your local authority, e.g. Salford.
 ```{r, eval=FALSE}
-indicator_metadata(IndicatorID = 91414) %>% formattable()
+la <- "Salford"
 ```
 
-4. Next we need to choose our area type. To obtain a list of area types we'll use the `area_types()` function. We want values of the indicator for a local authority so need **AreaTypeID** = 101. Note that not all indicators are available at all area types.
+6. Finally, we plot the indicator alongside England as a comparator in a time series chart.
 ```{r, eval=FALSE}
-area_types() %>%
-  select(AreaTypeID, AreaTypeName) %>%
-  distinct()
+trends(df,
+       timeperiod = Timeperiod,
+       value = Value,
+       area = AreaName,
+       comparator = "England",
+       area_name = la,
+       fill = ComparedtoEnglandvalueorpercentiles,
+       lowerci = LowerCI95.0limit,
+       upperci = UpperCI95.0limit,
+       title = paste0("Children in ", la, " receiving two doses of MMR by age 5"),
+       subtitle = "Source: NHS Digital",
+       xlab = "Year",
+       ylab = "Percent",
+       point_size = 3)
 ```
 
-5. Finally, we supply the **IndicatorID** and **AreaTypeID** to the `fingertips_data()` function to retrieve the data from the API. The results are then filtered by the local authority of interest.
-```{r, eval=FALSE}
-df <- fingertips_data(IndicatorID = 91414, AreaTypeID = 101) %>% 
-  filter(AreaName == "Trafford")
-```
 <br />
 
 ### Notes
-Further information about using the <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">FingertipsR</a> package can be found <a href="https://medium.com/@traffordDataLab/public-health-data-at-your-fingertips-d17523664d19" target="_blank">here</a>.
+
+A helpful guide to the other visualisations available in the <a href="https://cran.r-project.org/web/packages/fingertipscharts/index.html" target="_blank">fingertipscharts</a> package can be found <a href="https://cran.r-project.org/web/packages/fingertipscharts/vignettes/quick_charts.html" target="_blank">here</a>.
 <br />
 <br />
