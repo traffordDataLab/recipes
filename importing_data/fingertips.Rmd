@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <a href="https://www.gov.uk/government/organisations/public-health-england" target="_blank">Public Health England</a>
- provide a wealth of data relating to health and wellbeing on the <a href="https://fingertips.phe.org.uk" target="_blank">Fingertips website</a>. The <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package allows you to extract the data behind the Fingertips website and recreate its visualisations using the companion <a href="https://cran.r-project.org/web/packages/fingertipscharts/index.html" target="_blank">fingertipscharts</a> package. In this recipe we'll compare the <a href="https://fingertips.phe.org.uk/search/30311" target="_blank">percentage of 5 year olds in a local authority who've received two doses of MMR</a> over time using England as a comparator.
+ provide a wealth of data relating to health and wellbeing on the <a href="https://fingertips.phe.org.uk" target="_blank">Fingertips website</a>. The <a href="https://cran.r-project.org/web/packages/fingertipsR/index.html" target="_blank">fingertipsR</a> package allows you to extract the data behind the Fingertips website and recreate its visualisations using the companion <a href="https://cran.r-project.org/web/packages/fingertipscharts/index.html" target="_blank">fingertipscharts</a> package. In this recipe we'll compare the <a href="https://fingertips.phe.org.uk/search/30311" target="_blank">percentage of 5 year olds who've received two doses of the MMR vaccine</a> in a local authority with England over time.
  
 <h3>Ingredients</h3>  
 <div class = "row">
