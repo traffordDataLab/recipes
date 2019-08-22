@@ -29,6 +29,7 @@ New recipes are also very welcome. A recipe template is available to download fr
 <div class = "titlebar"><b>Importing data</b></div>
 <ul>
     <li><a href="importing_data/air_quality.html">Air quality</a></li>
+    <li><a href="importing_data/crime_and_asb.html">Crime and ASB</a></li>
     <li><a href="importing_data/fingertips.html">Fingertips</a></li>
     <li><a href="importing_data/IMD.html">IMD</a></li>
 </ul>

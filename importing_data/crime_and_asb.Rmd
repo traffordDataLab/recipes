@@ -1,0 +1,113 @@
+---
+title: "Crime and ASB"
+output:
+  html_document:
+    highlight: textmate
+    css: ../styles.css
+    code_folding: hide
+    includes:
+          in_header: ../header.html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- Provide a short summary of your recipe -->
+Police recorded crime and incidents of anti-social behaviour (ASB) that occur within a mile radius of a specific location are available from <a href="https://data.police.uk/" target="_blank">data.police.uk</a>. The location of each crime or incident of ASB is only <a href="https://data.police.uk/about/#location-anonymisation" target="_blank">approximate</a> but interesting spatial patterns can still emerge. In this recipe we'll pull out the latest incidents of anti-social behaviour (June 2019) within a mile of Piccadilly Gardens in Manchester.
+
+<h3>Ingredients</h3>  
+<div class = "row">
+
+<div class = "col-md-4">
+<strong>Data sources</strong>
+<p><a href="https://data.police.uk/" target="_blank">data.police.uk</a></p>
+</div>
+
+<div class = "col-md-4">
+<strong>R packages</strong>
+<ul>
+  <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/opencage/index.html" target="_blank">opencage</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/httr/index.html" target="_blank">httr</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/jsonlite/index.html" target="_blank">jsonlite</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/sf/index.html" target="_blank">sf</a></li>
+  <li><a href="https://cran.r-project.org/web/packages/mapview/index.html" target="_blank">mapview</a></li>
+</ul>
+</div>
+
+<div class = "col-md-4">
+<img src="img/crime_and_asb.png" alt="Top 10 locations">
+</div>
+</div>
+
+### Instructions
+
+<!-- Load the R packages first -->
+1. Load the necessary R packages.
+```{r, eval=FALSE}
+library(tidyverse) ; library(opencage) ; library(httr) ; library(jsonlite) ; library(sf) ; library(mapview)
+```
+
+2. Create a string object with the name of a location or postcode in England, Wales or Northern Ireland. 
+```{r, eval=FALSE}
+location <- "Piccadilly Gardens"
+```
+
+3. Use the <a href="https://cran.r-project.org/web/packages/opencage/index.html" target="_blank">opencage</a> package to 'forward geocode' i.e. return the latitude and longitude for your location. You'll need to <a href="https://geocoder.opencagedata.com/pricing" target="_blank">obtain a free API key</a> to access the OpenCage service.
+```{r, eval=FALSE}
+coordinates <- opencage_forward(key = "<your API key>",
+                                placename = location, 
+                                countrycode = "GB")$results
+```
+
+4. Check the coordinates correspond to the location.
+```{r, eval=FALSE}
+coordinates$formatted[1]
+```
+
+5. Request the latest street-level crimes and incidents of anti-social behaviour within a mile radius of the location from the <a href="https://data.police.uk/docs/method/crime-street/" target="_blank">data.police.uk API</a>. 
+```{r, eval=FALSE}
+crime_and_asb <- GET(url = "https://data.police.uk/api/crimes-street/all-crime",
+                     query = list(lat = coordinates$geometry.lat[1],
+                                  lng = coordinates$geometry.lng[1])) %>% 
+  content(as = "text", encoding = "UTF-8") %>% 
+  fromJSON(flatten = TRUE) %>% 
+  mutate(location.latitude = as.numeric(location.latitude),
+         location.longitude = as.numeric(location.longitude))
+```
+
+6. Count and sort the number of crimes per category.
+```{r, eval=FALSE}
+count(crime_and_asb, category, sort = TRUE)
+```
+
+7. Identify the top 10 repeat locations for <a href="https://www.police.uk/about-this-site/faqs/#what-do-the-crime-categories-mean" target="_blank">incidents of anti-social behaviour</a>.
+```{r, eval=FALSE}
+repeat_locations <- crime_and_asb %>%
+  filter(category == "anti-social-behaviour") %>% 
+  group_by(location.latitude, location.longitude, location.street.name, category) %>% 
+  summarise(n = n()) %>%
+  ungroup() %>%
+  arrange(desc(n)) %>% 
+  slice(1:10)
+```
+
+8. Convert to a spatial object ready for mapping.
+```{r, eval=FALSE}
+sf <- st_as_sf(repeat_locations, crs = 4326, coords = c("location.longitude", "location.latitude"))
+```
+
+9. Visualise the repeat locations of anti-social behaviour incidents in an interactive map.
+```{r, eval=FALSE}
+mapview(sf, 
+        map.types = c("CartoDB.Positron", "CartoDB.DarkMatter"),
+        cex = "n",
+        col = "#FFFFFF", col.regions = "#374f6b", alpha.regions = 1,
+        layer.name = unique(sf$category),
+        label = unique(sf$category), legend = FALSE)
+```
+
+<br /><br />
