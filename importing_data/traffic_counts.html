@@ -578,6 +578,7 @@ Ingredients
       ggplot(aes(x = factor(year), y = get(frequency), group = count_point_id)) +
       geom_line(color = &quot;#e7298a&quot;, size = 1) +
       geom_point(shape = 21, size = 3, colour = &quot;white&quot;, fill = &quot;#e7298a&quot;) +
+      scale_y_continuous(expand = c(0.005, 0.005), limits = c(0, NA), labels = comma) +
       labs(x = NULL, y = &quot;Number of vehicles&quot;,
            title = &quot;Average annual daily flow&quot;, 
            subtitle = id,
