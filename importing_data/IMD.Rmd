@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The English Indices of Deprivation (IMD) are a measure of relative deprivation in 32,844 small areas. The code below creates a choropleth map showing the Index of Multiple Deprivation 2015 by decile in Wigan. The English Indices of Deprivation 2019 are expected to be published in September / October 2019 so keep your <a href="https://www.gov.uk/government/statistics/announcements/english-indices-of-deprivation-2019" target="_blank">eyes peeled</a>.
+The English Indices of Deprivation (IMD) are a measure of relative deprivation in 32,844 small areas. The code below creates a choropleth map showing the Index of Multiple Deprivation 2015 by decile in Wigan. The English Indices of Deprivation 2019 are expected to be published in September / October 2019 so keep your <a href="https://www.gov.uk/government/collections/english-indices-of-deprivation" target="_blank">eyes peeled</a>.
 
 <h3>Ingredients</h3>  
 <div class = "row">
