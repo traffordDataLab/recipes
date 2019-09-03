@@ -48,6 +48,7 @@ New recipes are also very welcome. A recipe template is available to download fr
 <ul>
     <li><a href="data_visualisation/parliament_chart.html">Parliament chart</a></li>
     <li><a href="data_visualisation/population_pyramids.html">Population pyramids</a></li>
+    <li><a href="data_visualisation/warming_stripes.html">Warming stripes</a></li>
 </ul>
 
 <br />
