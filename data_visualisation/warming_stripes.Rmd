@@ -29,6 +29,7 @@ Warming stripes visualise a location's average annual temperature over a hundred
 <strong>R packages</strong>
 <ul>
   <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
+    <li><a href="https://cran.r-project.org/web/packages/stringr/index.html" target="_blank">stringr</a></li>
   <li><a href="https://cran.r-project.org/web/packages/lubridate/index.html" target="_blank">lubridate</a></li>
   <li><a href="https://cran.r-project.org/web/packages/RColorBrewer/index.html" target="_blank">RColorBrewer</a></li>
 </ul>
@@ -43,7 +44,7 @@ Warming stripes visualise a location's average annual temperature over a hundred
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
-library(tidyverse) ; library(lubridate) ; library(RColorBrewer)
+library(tidyverse) ; library(stringr) ; library(lubridate) ; library(RColorBrewer)
 ```
 
 2. Visit the <a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/historic-station-data" target="_blank">Met Office's historic station data</a> page. Select one of the locations from the dropdown or the map. Follow the link to the data and copy the URL.

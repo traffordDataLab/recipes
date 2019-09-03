@@ -538,6 +538,9 @@ Ingredients
 <a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a>
 </li>
 <li>
+<a href="https://cran.r-project.org/web/packages/stringr/index.html" target="_blank">stringr</a>
+</li>
+<li>
 <a href="https://cran.r-project.org/web/packages/lubridate/index.html" target="_blank">lubridate</a>
 </li>
 <li>
@@ -554,7 +557,7 @@ Ingredients
 <ol style="list-style-type: decimal">
 <li>Load the necessary R packages.</li>
 </ol>
-<pre class="r"><code>library(tidyverse) ; library(lubridate) ; library(RColorBrewer)</code></pre>
+<pre class="r"><code>library(tidyverse) ; library(stringr) ; library(lubridate) ; library(RColorBrewer)</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Visit the <a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/historic-station-data" target="_blank">Met Office’s historic station data</a> page. Select one of the locations from the dropdown or the map. Follow the link to the data and copy the URL.</p></li>
 <li><p>Supply the file argument of the <code>read_table</code> function with the URL that you’ve copied. Skip the first few rows that contain metadata and specify the variable data types. We’ll also remove the second header row.</p></li>
