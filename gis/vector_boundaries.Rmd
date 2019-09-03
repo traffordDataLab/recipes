@@ -30,7 +30,7 @@ The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/
 </ul>
 </div>
   
-<div class = "col-md-4">
+<div class = "col-md-4 screenshot">
 <img src="img/vector_boundaries.png" alt="Population pyramid">
 </div>
 </div>

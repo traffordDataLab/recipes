@@ -15,7 +15,6 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- Provide a short summary of your recipe -->
 Police recorded crime and incidents of anti-social behaviour (ASB) that occur within a mile radius of a specific location are available from <a href="https://data.police.uk/" target="_blank">data.police.uk</a>. The location of each crime or incident of ASB is only <a href="https://data.police.uk/about/#location-anonymisation" target="_blank">approximate</a> but interesting spatial patterns can still emerge. In this recipe we'll pull out the latest incidents of anti-social behaviour (June 2019) within a mile of Piccadilly Gardens in Manchester.
 
 <h3>Ingredients</h3>  
@@ -38,14 +37,13 @@ Police recorded crime and incidents of anti-social behaviour (ASB) that occur wi
 </ul>
 </div>
 
-<div class = "col-md-4">
+<div class = "col-md-4 screenshot">
 <img src="img/crime_and_asb.png" alt="Top 10 locations">
 </div>
 </div>
 
 ### Instructions
 
-<!-- Load the R packages first -->
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
 library(tidyverse) ; library(opencage) ; library(httr) ; library(jsonlite) ; library(sf) ; library(mapview)

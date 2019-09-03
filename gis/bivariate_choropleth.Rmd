@@ -37,15 +37,13 @@ Bivariate choropleth maps visualise the spatial relationship between two quantit
 </ul>
 </div>
 
-<div class = "col-md-4">
+<div class = "col-md-4 screenshot">
 <img src="img/bivariate_choropleth.png" alt="Bivariate choropleth map">
 </div>
 </div>
 
-<!-- Add each step of the recipe -->
 ### Instructions
 
-<!-- Load the R packages first -->
 1. Load the necessary R packages
 ```{r, eval=FALSE}
 library(tidyverse) ; library(httr) ; library(jsonlite) ; library(readxl) ; library(sf) ; library(biscale) ; library(cowplot)

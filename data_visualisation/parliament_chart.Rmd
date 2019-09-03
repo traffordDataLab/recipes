@@ -13,19 +13,16 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- Provide a short summary of your recipe -->
 Parliament or hemicycle charts are used to visualise the number of seats held by each political party. The chart design is skeuomorphic because it resembles the layout of a parliament.
 
 <h3>Ingredients</h3>  
 <div class = "row">
 
-<!-- Provide a link to the data source -->
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://www.trafford.gov.uk/about-your-council/elections/election-results.aspx" target="_blank">Trafford Council</a></p>
 </div>
 
-<!-- List the R packages used and their page on cran.r-project.org -->
 <div class = "col-md-4">
 <strong>R packages</strong>
 <ul>
@@ -34,16 +31,13 @@ Parliament or hemicycle charts are used to visualise the number of seats held by
 </ul>
 </div>
 
-<!-- Create an image of your output and store it in the img folder-->
-<div class = "col-md-4">
+<div class = "col-md-4 screenshot">
 <img src="img/parliament_chart.png" alt="Parliament chart">
 </div>
 </div>
 
-<!-- Add each step of the recipe -->
 ### Instructions
 
-<!-- Load the R packages first -->
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
 library(tidyverse) ; library(ggpol)

@@ -13,19 +13,16 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- Provide a short summary of your recipe -->
 The <a href="https://openaq.org" target=“_blank”>OpenAQ</a> platform gathers and shares open air quality data from around the world. 162 automatic monitoring stations are listed on OpenAQ for the UK with hourly NO<sub>2</sub> readings available over the last 90 days. Many of the stations also record levels of coarse and fine particulate matter (PM<sub>10</sub> and PM<sub>2.5</sub>). This recipe will retrieve hourly mean NO<sub>2</sub> concentrations from the Manchester Piccadilly monitoring station and plot the results.
 
 <h3>Ingredients</h3>  
 <div class = "row">
 
-<!-- Provide a link to the data source -->
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://openaq.org" target="_blank">OpenAQ</a></p>
 </div>
 
-<!-- List the R packages used and their page on cran.r-project.org -->
 <div class = "col-md-4">
 <strong>R packages</strong>
 <ul>
@@ -34,16 +31,13 @@ The <a href="https://openaq.org" target=“_blank”>OpenAQ</a> platform gathers
 </ul>
 </div>
 
-<!-- Create an image of your output and store it in the img folder-->
-<div class = "col-md-4">
+<div class = "col-md-4 screenshot">
 <img src="img/air_quality.png" alt="Figure title">
 </div>
 </div>
 
-<!-- Add each step of the recipe -->
 ### Instructions
 
-<!-- Load the R packages first -->
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
 library(ropenaq) ; library(ggplot2)

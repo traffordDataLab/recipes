@@ -36,7 +36,7 @@ The <a href="https://www.gov.uk/government/organisations/department-for-transpor
 </ul>
 </div>
 
-<div class = "col-md-4">
+<div class = "col-md-4 screenshot">
 <a href="html/traffic_counts.html" target="_blank"><img src="img/traffic_counts.png" alt="Map of average pedal cycle counts"></a> 
 </div>
 </div>

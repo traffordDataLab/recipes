@@ -33,15 +33,13 @@ knitr::opts_chunk$set(echo = TRUE)
 </ul>
 </div>
 
-<div class = "col-md-4">
+<div class = "col-md-4 screenshot">
 <img src="img/fingertips.png" alt="Time series chart">
 </div>
 </div>
 
-<!-- Add each step of the recipe -->
 ### Instructions
 
-<!-- Load the R packages first -->
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
 library(tidyverse); library(fingertipsR) ; library(fingertipscharts)
