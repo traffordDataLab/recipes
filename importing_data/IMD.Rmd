@@ -51,7 +51,7 @@ la <- "Wigan"
 
 3. Retrieve the English Indices of Deprivation (2019) for Wigan.
 ```{r, eval=FALSE}
-imd <- read.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/833982/File_7_-_All_IoD2019_Scores__Ranks__Deciles_and_Population_Denominators.csv") %>% 
+imd <- read_csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/833982/File_7_-_All_IoD2019_Scores__Ranks__Deciles_and_Population_Denominators.csv") %>% 
   clean_names() %>% 
   filter(local_authority_district_name_2019 == la) %>% 
   select(lsoa11cd = 1, 5:34) %>% 
