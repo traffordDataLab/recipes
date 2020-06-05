@@ -1,32 +1,32 @@
 ---
 title: <img src="https://cran.r-project.org/Rlogo.svg" alt="R" width="80" style="float:left;margin-top:-10px;">ecipes for local government
+pagetitle: Recipes for local government
 output:
   html_document:
     css: styles.css
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto"/>
 
 <style>
-
 ul {
   padding: 0 0 0 0.3em;
 }
-
 </style>
 
-<br />
+<main><br />
 
 These are recipes to common tasks like retrieving data from <a href="https://www.nomisweb.co.uk/" target="_blank">Nomis</a>, geocoding addresses, and creating data visualisations like population pyramids. All the <a href="https://cran.r-project.org/" target="_blank">R</a> code is provided along with step by step instructions. For those wanting an introductory guide to R check out <a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science</a>.
 
-<h4>Want to contribute?</h4>
-These recipes have been created using the <a href="https://rmarkdown.rstudio.com/" target="_blank">rmarkdown</a> R package which makes editing easy. Any GitHub user (<a href="https://github.com/" target="_blank">sign-up at github.com</a>) can make changes to a recipe by clicking <img src="edit_button.png" alt="Edit button" style="width:6em;">. Once you've made your edits you can submit your changes for approval. If you'd rather just make a comment you can post an <a href="https://github.com/trafforddatalab/recipes/issues" target="_blank">issue</a> on GitHub. 
+## Want to contribute?
+These recipes have been created using the <a href="https://rmarkdown.rstudio.com/" target="_blank">rmarkdown</a> R package which makes editing easy. Any GitHub user (<a href="https://github.com/" target="_blank">sign-up at github.com</a>) can make changes to a recipe by selecting <img src="edit_button.png" alt="edit this page" width="100" style="width:6em;">. Once you've made your edits you can submit your changes for approval. If you'd rather just make a comment you can <a href="https://github.com/trafforddatalab/recipes/issues" target="_blank">post an issue on GitHub.</a>
 
-New recipes are also very welcome. A recipe template is available to download from <a href="https://github.com/traffordDataLab/recipes/raw/master/template.Rmd" target="_blank">here</a>. When you've completed your recipe send us a <a href="https://help.github.com/en/articles/about-pull-requests" target="_blank">pull request</a>.
+New recipes are also very welcome. You can create yours by <a href="https://github.com/traffordDataLab/recipes/raw/master/template.Rmd" target="_blank">downloading the recipe template</a>. When you've completed your recipe send us a <a href="https://help.github.com/en/articles/about-pull-requests" target="_blank">pull request</a>.
 
 <br />
 
-<div class = "titlebar"><b>Importing data</b></div>
+<div class="titlebar">Importing data</div>
 <ul>
     <li><a href="importing_data/air_quality.html">Air quality</a></li>
     <li><a href="importing_data/crime_and_asb.html">Crime and ASB</a></li>
@@ -37,14 +37,14 @@ New recipes are also very welcome. A recipe template is available to download fr
 
 <br />
 
-<div class = "titlebar"><b>Data wrangling</b></div>
-<ul>
-    <li><a href="#"></a></li>
-</ul>
+<div class="titlebar">Data wrangling</div>
+<!--ul>
+    <li></li>
+</ul-->
 
 <br />
 
-<div class = "titlebar"><b>Data visualisation</b></div>
+<div class="titlebar">Data visualisation</div>
 <ul>
     <li><a href="data_visualisation/parliament_chart.html">Parliament chart</a></li>
     <li><a href="data_visualisation/population_pyramids.html">Population pyramids</a></li>
@@ -53,14 +53,14 @@ New recipes are also very welcome. A recipe template is available to download fr
 
 <br />
 
-<div class = "titlebar"><b>Data analysis</b></div>
-<ul>
-    <li><a href="#"></a></li>
-</ul>
+<div class = "titlebar">Data analysis</div>
+<!--ul>
+    <li></li>
+</ul-->
 
 <br />
 
-<div class = "titlebar"><b>GIS</b></div>
+<div class = "titlebar">GIS</div>
 <ul>
     <li><a href="gis/bivariate_choropleth.html">Bivariate choropleth</a></li>
     <li><a href="gis/postcodes.html">Postcodes</a></li>
@@ -69,11 +69,6 @@ New recipes are also very welcome. A recipe template is available to download fr
 
 <br /><br /><br /><br />
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />
-<div><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">These recipes</span> are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. <a href="https://github.com/traffordDataLab/recipes" target="_blank">
-<i class="fa fa-github" style="font-size:24px; float:right; margin-top: -3px;"></i>
-</a></div>
-
-<script>
-  document.title = 'R' + document.title;
-</script>
+<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /><br />
+<div><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">These recipes</span> are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. <a href="https://github.com/traffordDataLab/recipes" target="_blank" aria-label="Trafford Data Lab recipes repo on GitHub"><span class="fa fa-github" style="font-size:24px; float:right; margin-top: -3px;"></span><span class="hideContent">GitHub</span></a></div>
+</main>
