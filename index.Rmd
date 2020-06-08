@@ -1,6 +1,7 @@
 ---
 title: <img src="https://cran.r-project.org/Rlogo.svg" alt="R" width="80" style="float:left;margin-top:-10px;">ecipes for local government
 pagetitle: Recipes for local government
+lang: "en-GB"
 output:
   html_document:
     css: styles.css
