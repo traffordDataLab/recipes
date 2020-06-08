@@ -1,12 +1,15 @@
 ---
 title: "Parliament charts"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -15,9 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Parliament or hemicycle charts are used to visualise the number of seats held by each political party. The chart design is skeuomorphic because it resembles the layout of a parliament.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
-
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://www.trafford.gov.uk/about-your-council/elections/election-results.aspx" target="_blank">Trafford Council</a></p>
@@ -26,8 +28,8 @@ Parliament or hemicycle charts are used to visualise the number of seats held by
 <div class = "col-md-4">
 <strong>R packages</strong>
 <ul>
-  <li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
-  <li><a href="https://cran.r-project.org/web/packages/ggpol/index.html" target="_blank">ggpol</a></li>
+<li><a href="https://cran.r-project.org/web/packages/tidyverse/index.html" target="_blank">tidyverse</a></li>
+<li><a href="https://cran.r-project.org/web/packages/ggpol/index.html" target="_blank">ggpol</a></li>
 </ul>
 </div>
 
@@ -36,7 +38,7 @@ Parliament or hemicycle charts are used to visualise the number of seats held by
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
@@ -74,6 +76,6 @@ ggsave("parliament_chart.png", dpi = 300)
 ```
 <br />
 
-### Notes
+## Notes
 The colour for each party can be found using an online tool like [HTML Color Codes](https://html-color-codes.info/colors-from-image/) which matches the colour in an image to their [HEX code](https://www.w3schools.com/colors/colors_hexadecimal.asp).
 <br /><br />

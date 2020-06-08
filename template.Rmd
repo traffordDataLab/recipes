@@ -1,12 +1,14 @@
 ---
 title: ""
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
-    includes:
-          in_header: ../header.html
+    in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -16,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <!-- Provide a short summary of your recipe -->
 Summary of recipe.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
 
 <!-- Provide a link to the data source -->
@@ -41,7 +43,7 @@ Summary of recipe.
 </div>
 
 <!-- Add each step of the recipe -->
-### Instructions
+## Instructions
 
 <!-- Load the R packages first -->
 1. Load the necessary R packages.
@@ -54,6 +56,6 @@ library(tidyverse)
 5.
 <br />
 
-### Notes
+## Notes
 
 <br /><br />

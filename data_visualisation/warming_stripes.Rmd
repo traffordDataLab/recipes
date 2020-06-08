@@ -1,12 +1,15 @@
 ---
 title: "Warming stripes"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 editor_options: 
   chunk_output_type: console
 ---
@@ -15,11 +18,10 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Warming stripes visualise a location's average annual temperature over a hundred or more years. The dark blue to dark red palette is used to show the spread of cooler and warmer years. Warming stripes were orginally conceived by <a href="http://www.met.reading.ac.uk/~ed/" target="_blank">Ed Hawkins</a>, a climate scientist based at the University of Reading. They can easily be created in R using historic weather data from the <a href="https://www.metoffice.gov.uk/" target="_blank">Met Office</a>. In this recipe we'll create a warming stripes for Sheffield.
+Warming stripes visualise a location's average annual temperature over a hundred or more years. The dark blue to dark red palette is used to show the spread of cooler and warmer years. Warming stripes were originally conceived by <a href="http://www.met.reading.ac.uk/~ed/" target="_blank">Ed Hawkins</a>, a climate scientist based at the University of Reading. They can easily be created in R using historic weather data from the <a href="https://www.metoffice.gov.uk/" target="_blank">Met Office</a>. In this recipe we'll create a warming stripes for Sheffield.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
-
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://www.metoffice.gov.uk/research/climate/maps-and-data/historic-station-data" target="_blank">Met Office</a></p>
@@ -40,7 +42,7 @@ Warming stripes visualise a location's average annual temperature over a hundred
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
@@ -111,14 +113,11 @@ ggplot(temperature, aes(x = yyyy, y = 1, fill = average))+
 ```{r, eval=FALSE}
 ggsave("warming_stripes.png", dpi = 300)
 ```
-
 <br />
 
-### Notes
-
+## Notes
 Further information about warming stripes visualisations can be found at the <a href="http://www.climate-lab-book.ac.uk/2018/warming-stripes/" target="_blank">Climate Lab Book</a> blog and charts for individual countries can be downloaded from <a href="https://showyourstripes.info" target="_blank">ShowYourStripes.info</a>.
 
-### Credits
+## Credits
 This recipe has been adapted from <a href="https://dominicroye.github.io/en/2018/how-to-create-warming-stripes-in-r" target="_blank">How to create 'Warming Stripes' in R</a> by Dominic Royé.
-
 <br /><br />

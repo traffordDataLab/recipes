@@ -1,12 +1,15 @@
 ---
 title: "Population pyramids"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -15,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 A population pyramid visualises the age-gender distribution. This recipe uses the latest <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland" target="_blank">mid-year population estimates</a> for a local authority and visualises them by gender and 5-year age bands.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
 <div class = "col-md-4">
 <strong>Data sources</strong>
@@ -35,7 +38,7 @@ A population pyramid visualises the age-gender distribution. This recipe uses th
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
@@ -98,7 +101,7 @@ ggsave("population_pyramids.png", dpi = 300)
 
 <br />
 
-<div class = "titlebar"><b>Supplementary code</b></div>
+<div class="titlebar">Supplementary code</div>
 <br />
 
 If you want to compare the age distribution of your chosen area with the total population of England you can use this code.

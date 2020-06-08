@@ -1,23 +1,34 @@
-body {
+body
+{
     font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+main, header
+{
+    display: block;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6
+{
     font-family: 'Roboto', sans-serif;
     color: #707070;
 }
 
-a {
+a
+{
     color: #046dc3;
     text-decoration: none;
 }
 
-a:hover {
+a:hover
+{
     color: #046dc3;
     text-decoration: underline;
 }
 
-a:focus {
+a:focus
+{
     color: #046dc3;
     text-decoration: none;
     outline: none;
@@ -25,19 +36,22 @@ a:focus {
 }
 
 /* Remove list bullets */
-ul {
+ul
+{
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 /* Left align ordered list */
-ol {
+ol
+{
     padding: 0;
     margin: 0 0 0 1em;
 }
 
-div.titlebar {
+div.titlebar
+{
     background-color: #eee;
     border-radius: 5px;
     padding: 8px 0 8px 5px;
@@ -49,7 +63,8 @@ div.titlebar + ul
     margin-left: 0.3em;
 }
 
-p.caption {
+p.caption
+{
     font-size: 0.9em;
     font-style: italic;
     color: grey;
@@ -59,11 +74,26 @@ p.caption {
 }
 
 /* Image padding */
-.screenshot {
+.screenshot
+{
     padding: 10px;
 }
 
 .hideContent
 {
     display: none;
+}
+
+/* Link to return to recipes menu */
+.headerGoBackLink
+{
+    margin-left: -0.75em;
+    text-transform: uppercase;
+}
+
+#edit
+{
+    position: absolute;
+    left: 0;
+    font-family: 'Roboto', sans-serif;
 }
