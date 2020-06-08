@@ -5,18 +5,13 @@ lang: "en-GB"
 output:
   html_document:
     css: styles.css
+    includes:
+      in_header: head_includes.html
+      before_body: header_home.html
+      after_body: footer.html
 ---
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto"/>
-
-<style>
-ul {
-  padding: 0 0 0 0.3em;
-}
-</style>
-
-<main><br />
+<br />
 
 These are recipes to common tasks like retrieving data from <a href="https://www.nomisweb.co.uk/" target="_blank">Nomis</a>, geocoding addresses, and creating data visualisations like population pyramids. All the <a href="https://cran.r-project.org/" target="_blank">R</a> code is provided along with step by step instructions. For those wanting an introductory guide to R check out <a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science</a>.
 
@@ -72,4 +67,3 @@ New recipes are also very welcome. You can create yours by <a href="https://gith
 
 <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /><br />
 <div><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">These recipes</span> are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. <a href="https://github.com/traffordDataLab/recipes" target="_blank" aria-label="Trafford Data Lab recipes repo on GitHub"><span class="fa fa-github" style="font-size:24px; float:right; margin-top: -3px;"></span><span class="hideContent">GitHub</span></a></div>
-</main>
