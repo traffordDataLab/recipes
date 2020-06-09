@@ -1,12 +1,15 @@
 ---
 title: "Bivariate choropleth"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -15,9 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Bivariate choropleth maps visualise the spatial relationship between two quantitative variables. The <a href="https://slu-opengis.github.io/biscale/" target="_blank">biscale</a> package has a handy set of functions that allow you to create bivariate thematic maps in R with ease. The recipe below uses the biscale package to visualise the relationship between commuting to work by bike and overall physical activity in Manchester's <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography" target="_blank">MSOAs</a>.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
-
 <div class = "col-md-4">
 <strong>Data sources</strong><br />
 <a href="https://www.nomisweb.co.uk/census/2011/qs701ew" target="_blank">QS701EW, 2011 Census</a><br />
@@ -42,7 +44,7 @@ Bivariate choropleth maps visualise the spatial relationship between two quantit
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages
 ```{r, eval=FALSE}
@@ -133,7 +135,7 @@ save_plot("bivariate_choropleth.png", plot, base_height = 8, base_aspect_ratio =
 
 <br />
 
-### Further reading
+## Further reading
 <p>Grossenbacher, T. (2019, April 19). Bivariate maps with ggplot2 and sf [Blog post]. Retrieved from <a href="https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/" target="_blank">https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/</a></p>
 <p>Prener, C. (2019, June 21). Bivarite Mapping with ggplot2 [Package vignette]. Retrieved from <a href="https://cran.r-project.org/web/packages/biscale/vignettes/biscale.html" target="_blank">https://cran.r-project.org/web/packages/biscale/vignettes/biscale.html</a></p>
 <p>Stevens, J. (2015, February 18). Bivariate Choropleth Maps: A How-to Guide [Blog post]. Retrieved from <a href="http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/" target="_blank">http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/</a></p>

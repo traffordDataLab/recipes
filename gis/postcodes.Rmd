@@ -1,12 +1,15 @@
 ---
 title: "Postcodes"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -15,9 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Sometimes you have a set of addresses but no way of mapping them. Helpfully, the Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/" target="_blank">Open Geography Portal</a> provides the <a href="http://wiki.gis.com/wiki/index.php/Centroid" target="_blank">centroids</a> for all UK postcodes. This recipe shows you how to query the Portal's API and retrieve the centroid coordinates for a given set of postcodes.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
-
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://geoportal.statistics.gov.uk/" target="_blank">ONS Open Geography Portal</a></p>
@@ -37,7 +39,7 @@ Sometimes you have a set of addresses but no way of mapping them. Helpfully, the
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}

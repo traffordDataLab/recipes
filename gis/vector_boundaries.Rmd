@@ -1,12 +1,15 @@
 ---
 title: "Vector boundaries"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -15,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/" target="_blank">Open Geography Portal</a> provide a range of geospatial datasets under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3" target="_blank">Open Government Licence 3.0</a>. Digital vector boundaries for different administrative and statistical geographies are  available to freely download. Here we'll download a single local authority boundary file.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
 <div class = "col-md-4">
 <strong>Data sources</strong>
@@ -35,9 +38,9 @@ The Office for National Statistics' <a href="http://geoportal.statistics.gov.uk/
 </div>
 </div>
 
-### Instructions
+## Instructions
 
-<div class = "titlebar"><b>Method 1: download all boundaries and filter in R</b></div>
+<div class = "titlebar">Method 1: download all boundaries and filter in R</div>
 <br />
 
 1. Load the necessary R packages.
@@ -77,7 +80,7 @@ st_write(sf, "local_authority_boundary.geojson")
 
 <br />
 
-<div class = "titlebar"><b>Method 2: filter using the API</b></div>
+<div class = "titlebar">Method 2: filter using the API</div>
 <br />
 
 1. Load the necessary R packages.
@@ -99,6 +102,6 @@ library(tidyverse) ; library(sf)
 sf <- st_read("https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Local_Authority_Districts_December_2018_Boundaries_UK_BGC/MapServer/0/query?where=lad18nm%20=%20%27Trafford%27&outFields=lad18cd,lad18nm,long,lat&outSR=4326&f=geojson")
 ```
 
-### Notes
-Further information about using the Open Geography Portal API can be found <a href="https://medium.com/@traffordDataLab/pushing-the-boundaries-with-the-open-geography-portal-api-4d70637bddc3" target="_blank">here</a>.
-<br />
+## Notes
+Further information can be found in our Medium article: <a href="https://medium.com/@traffordDataLab/pushing-the-boundaries-with-the-open-geography-portal-api-4d70637bddc3" target="_blank">"Pushing the boundaries with the Open Geography Portal API"</a>.
+<br /><br />
