@@ -1,23 +1,25 @@
 ---
 title: "Air quality"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The <a href="https://openaq.org" target=“_blank”>OpenAQ</a> platform gathers and shares open air quality data from around the world. 162 automatic monitoring stations are listed on OpenAQ for the UK with hourly NO<sub>2</sub> readings available over the last 90 days. Many of the stations also record levels of coarse and fine particulate matter (PM<sub>10</sub> and PM<sub>2.5</sub>). This recipe will retrieve hourly mean NO<sub>2</sub> concentrations from the Manchester Piccadilly monitoring station and plot the results.
+The OpenAQ platform gathers and shares open air quality data from around the world. 162 automatic monitoring stations are listed on OpenAQ for the UK with hourly NO<sub>2</sub> readings available over the last 90 days. Many of the stations also record levels of coarse and fine particulate matter (PM<sub>10</sub> and PM<sub>2.5</sub>). This recipe will retrieve hourly mean NO<sub>2</sub> concentrations from the Manchester Piccadilly monitoring station and plot the results.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
-
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://openaq.org" target="_blank">OpenAQ</a></p>
@@ -32,11 +34,11 @@ The <a href="https://openaq.org" target=“_blank”>OpenAQ</a> platform gathers
 </div>
 
 <div class = "col-md-4 screenshot">
-<img src="img/air_quality.png" alt="Figure title">
+<img src="img/air_quality.png" alt="Air quality chart">
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}

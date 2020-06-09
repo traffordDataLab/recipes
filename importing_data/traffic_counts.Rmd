@@ -1,12 +1,15 @@
 ---
 title: "Traffic counts"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 editor_options: 
   chunk_output_type: console
 ---
@@ -17,9 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The <a href="https://www.gov.uk/government/organisations/department-for-transport" target="_blank">Department for Transport</a> publish Annual Average Daily Flow (AADF) and traffic data for every junction-to-junction link on the 'A' road and minor road network in Great Britain. In this recipe we'll explore average daily pedal cycle counts in Trafford by creating an interactive map with <a href="https://r-spatial.github.io/mapview/articles/articles/mapview_04-popups.html#graph-popups" target="_blank">graph popups</a> showing counts over time.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
-
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://roadtraffic.dft.gov.uk/downloads" target="_blank">Department for Transport</a></p>
@@ -41,7 +43,7 @@ The <a href="https://www.gov.uk/government/organisations/department-for-transpor
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
@@ -103,7 +105,7 @@ map <- filter(sf, year == 2018) %>%
 map
 ```
 
-You can see the example map <a href="html/traffic_counts.html" target="_blank">here</a>.
+View <a href="html/traffic_counts.html" target="_blank">example interactive map</a>.
 
 7. Lastly, we can save the map for sharing by saving it as an html file.
 ```{r, eval=FALSE}

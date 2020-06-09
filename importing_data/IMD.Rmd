@@ -1,12 +1,15 @@
 ---
 title: "IMD"
+lang: "en-GB"
 output:
   html_document:
     highlight: textmate
     css: ../styles.css
     code_folding: hide
     includes:
-          in_header: ../header.html
+      in_header: ../head_includes.html
+      before_body: ../header.html
+      after_body: ../footer.html
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
@@ -15,9 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The <a href="https://www.gov.uk/government/collections/english-indices-of-deprivation" target="_blank">English Indices of Deprivation 2019</a> (IoD2019) are a measure of relative deprivation in 32,844 small areas. The code below creates a choropleth map showing the Index of Multiple Deprivation 2019 by decile in Wigan.
 
-<h3>Ingredients</h3>  
+## Ingredients
 <div class = "row">
-
 <div class = "col-md-4">
 <strong>Data sources</strong>
 <p><a href="https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019" target="_blank">English Indices of Deprivation 2019</a></p>
@@ -37,7 +39,7 @@ The <a href="https://www.gov.uk/government/collections/english-indices-of-depriv
 </div>
 </div>
 
-### Instructions
+## Instructions
 
 1. Load the necessary R packages.
 ```{r, eval=FALSE}
