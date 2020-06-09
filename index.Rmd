@@ -1,5 +1,4 @@
 ---
-title: <img src="https://cran.r-project.org/Rlogo.svg" alt="R" width="80" style="float:left;margin-top:-10px;">ecipes for local government
 pagetitle: Recipes for local government
 lang: "en-GB"
 output:
@@ -11,6 +10,7 @@ output:
       after_body: footer.html
 ---
 
+<h1 aria-label="Recipes for local government"><img src="https://cran.r-project.org/Rlogo.svg" alt="R" width="80" style="float:left;margin-top:-10px;">ecipes for local government</h1>
 <br />
 
 These are recipes to common tasks like retrieving data from <a href="https://www.nomisweb.co.uk/" target="_blank">Nomis</a>, geocoding addresses, and creating data visualisations like population pyramids. All the <a href="https://cran.r-project.org/" target="_blank">R</a> code is provided along with step by step instructions. For those wanting an introductory guide to R check out <a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science</a>.
